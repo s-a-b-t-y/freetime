@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Theme 1: Crimson Noir (Default) */
+    --color-bg-primary: #0B0B0D;
+    --color-bg-secondary: #121214;
+    --color-bg-panel: #18181B;
+    --color-bg-card: #151518;
+    --color-bg-input: #0E0E12;
+    --color-border: #27272A;
+    --color-border-subtle: #1F1F23;
+    --color-border-accent: #E11D48;
+    --color-text-primary: #F4F4F5;
+    --color-text-secondary: #A1A1AA;
+    --color-text-muted: #71717A;
+    --color-accent: #E11D48;
+    --color-accent-hover: #BE123C;
+    --color-accent-subtle: rgba(225, 29, 72, 0.14);
+    --color-accent-glow: rgba(225, 29, 72, 0.4);
+    --color-accent-badge: #FDA4AF;
+  }
+
+  /* Theme 2: Midnight Indigo */
+  [data-theme="indigo"] {
+    --color-bg-primary: #080A0F;
+    --color-bg-secondary: #0D111A;
+    --color-bg-panel: #131826;
+    --color-bg-card: #101521;
+    --color-bg-input: #0A0D15;
+    --color-border: #1E283D;
+    --color-border-subtle: #161E2E;
+    --color-border-accent: #38BDF8;
+    --color-text-primary: #F0F6FC;
+    --color-text-secondary: #94A3B8;
+    --color-text-muted: #64748B;
+    --color-accent: #38BDF8;
+    --color-accent-hover: #0284C7;
+    --color-accent-subtle: rgba(56, 189, 248, 0.14);
+    --color-accent-glow: rgba(56, 189, 248, 0.4);
+    --color-accent-badge: #BAE6FD;
+  }
+
+  /* Theme 3: Emerald Specimen */
+  [data-theme="emerald"] {
+    --color-bg-primary: #070B09;
+    --color-bg-secondary: #0C130F;
+    --color-bg-panel: #111B15;
+    --color-bg-card: #0E1612;
+    --color-bg-input: #080E0B;
+    --color-border: #1B2B20;
+    --color-border-subtle: #142018;
+    --color-border-accent: #10B981;
+    --color-text-primary: #F0FDF4;
+    --color-text-secondary: #93A89D;
+    --color-text-muted: #61776B;
+    --color-accent: #10B981;
+    --color-accent-hover: #059669;
+    --color-accent-subtle: rgba(16, 185, 129, 0.14);
+    --color-accent-glow: rgba(16, 185, 129, 0.4);
+    --color-accent-badge: #A7F3D0;
+  }
+
+  /* Theme 4: Sepia Parchment */
+  [data-theme="parchment"] {
+    --color-bg-primary: #0E0D0B;
+    --color-bg-secondary: #161411;
+    --color-bg-panel: #1F1B16;
+    --color-bg-card: #1A1713;
+    --color-bg-input: #0D0C0A;
+    --color-border: #332B22;
+    --color-border-subtle: #262018;
+    --color-border-accent: #D97706;
+    --color-text-primary: #FAF5EB;
+    --color-text-secondary: #B8AF9F;
+    --color-text-muted: #82786A;
+    --color-accent: #D97706;
+    --color-accent-hover: #B45309;
+    --color-accent-subtle: rgba(217, 119, 6, 0.14);
+    --color-accent-glow: rgba(217, 119, 6, 0.4);
+    --color-accent-badge: #FDE68A;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    overflow-x: hidden;
+    transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s ease;
+  }
+
+  *, ::before, ::after {
+    transition: border-color 0.25s ease;
+  }
+}
+
+/* Dynamic theme background & text helper utilities */
+.theme-bg-primary {
+  background-color: var(--color-bg-primary) !important;
+}
+.theme-bg-secondary {
+  background-color: var(--color-bg-secondary) !important;
+}
+.theme-bg-panel {
+  background-color: var(--color-bg-panel) !important;
+}
+.theme-bg-card {
+  background-color: var(--color-bg-card) !important;
+}
+.theme-bg-input {
+  background-color: var(--color-bg-input) !important;
+}
+.theme-bg-accent {
+  background-color: var(--color-accent) !important;
+}
+.theme-bg-accent-subtle {
+  background-color: var(--color-accent-subtle) !important;
+}
+
+.theme-border {
+  border-color: var(--color-border) !important;
+}
+.theme-border-subtle {
+  border-color: var(--color-border-subtle) !important;
+}
+.theme-border-accent {
+  border-color: var(--color-accent) !important;
+}
+
+.theme-text-primary {
+  color: var(--color-text-primary) !important;
+}
+.theme-text-secondary {
+  color: var(--color-text-secondary) !important;
+}
+.theme-text-muted {
+  color: var(--color-text-muted) !important;
+}
+.theme-text-accent {
+  color: var(--color-accent) !important;
+}
+.theme-text-accent-badge {
+  color: var(--color-accent-badge) !important;
+}
+
+.theme-accent-glow {
+  box-shadow: 0 0 20px var(--color-accent-glow);
+}
+
+.theme-accent-ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-accent);
+}
+
+/* Custom scrollbars matching active theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Typography classes */
+.font-mono-archive {
+  font-family: var(--font-mono);
+}
+.font-serif-archive {
+  font-family: var(--font-serif);
+}
+
+/* Audio equalizer keyframes */
+@keyframes eqWave1 {
+  0%, 100% { height: 4px; }
+  50% { height: 16px; }
+}
+@keyframes eqWave2 {
+  0%, 100% { height: 14px; }
+  50% { height: 6px; }
+}
+@keyframes eqWave3 {
+  0%, 100% { height: 8px; }
+  50% { height: 18px; }
+}
+@keyframes eqWave4 {
+  0%, 100% { height: 12px; }
+  50% { height: 4px; }
+}
+
+.animate-eq-1 { animation: eqWave1 0.7s infinite ease-in-out; }
+.animate-eq-2 { animation: eqWave2 0.85s infinite ease-in-out; }
+.animate-eq-3 { animation: eqWave3 0.65s infinite ease-in-out; }
+.animate-eq-4 { animation: eqWave4 0.9s infinite ease-in-out; }

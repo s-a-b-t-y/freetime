@@ -1,0 +1,6 @@
+{
+  "name": "The Archive",
+  "description": "A private digital archive and mysterious interactive puzzle journey.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
