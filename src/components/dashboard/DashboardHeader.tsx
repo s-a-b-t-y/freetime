@@ -82,12 +82,12 @@ export const DashboardHeader: React.FC<Props> = ({ activeTab, setActiveTab }) =>
         </nav>
 
         {/* Zone 3: Primary Utility Actions */}
-        <div className="flex items-center gap-2">
-          {/* Terminal Launcher */}
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          {/* Terminal Launcher - hidden on very small mobile screens */}
           <button
             type="button"
             onClick={() => toggleTerminal()}
-            className="p-2 rounded-full border border-[#27272A] hover:border-zinc-500 bg-[#14151B] text-zinc-400 hover:text-white transition-colors cursor-pointer"
+            className="hidden sm:flex p-2 rounded-full border border-[#27272A] hover:border-zinc-500 bg-[#14151B] text-zinc-400 hover:text-white transition-colors cursor-pointer shrink-0"
             title="Open Diagnostic Shell Terminal (` or Ctrl+Shift+A)"
             aria-label="Open Terminal"
           >
@@ -98,12 +98,12 @@ export const DashboardHeader: React.FC<Props> = ({ activeTab, setActiveTab }) =>
           <button
             type="button"
             onClick={() => toggleUserManual(true)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#27272A] hover:border-zinc-500 bg-[#14151B] text-xs font-mono text-zinc-300 hover:text-white transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full border border-[#27272A] hover:border-zinc-500 bg-[#14151B] text-xs font-mono text-zinc-300 hover:text-white transition-colors cursor-pointer shrink-0"
             title="Archive Operator Manual"
             aria-label="Manual"
           >
             <BookOpen className="w-3.5 h-3.5" style={{ color: 'var(--color-accent)' }} />
-            <span className="hidden sm:inline">Manual</span>
+            <span className="hidden md:inline">Manual</span>
           </button>
 
           <ThemeSelector />

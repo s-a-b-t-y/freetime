@@ -7,12 +7,12 @@ export const DashboardProgress: React.FC = () => {
   const { currentLevel, unlockedLevels, completedLevels, setCurrentLevel } = useArchive();
 
   return (
-    <div className="bg-[#121214] border border-[#27272A] rounded-xl p-4 sm:p-5 shadow-lg">
-      <div className="flex items-center justify-between mb-3 text-xs font-mono">
-        <span className="uppercase tracking-widest text-zinc-400">
-          Archive Recovery Progress
+    <div className="bg-[#121214] border border-[#27272A] rounded-xl p-3 sm:p-5 shadow-lg">
+      <div className="flex items-center justify-between mb-2 sm:mb-3 text-[11px] sm:text-xs font-mono">
+        <span className="uppercase tracking-widest text-zinc-400 text-[10px] sm:text-xs">
+          Recovery Progress
         </span>
-        <span className="text-zinc-200 font-bold">
+        <span className="font-bold text-[11px] sm:text-xs" style={{ color: 'var(--color-accent-badge)' }}>
           0{completedLevels.length} / 07 RECOVERED
         </span>
       </div>
@@ -33,8 +33,8 @@ export const DashboardProgress: React.FC = () => {
               type="button"
               disabled={!isUnlocked}
               onClick={() => setCurrentLevel(level.id)}
-              className={`relative z-10 flex flex-col items-center gap-1.5 focus:outline-none cursor-pointer transition-transform ${
-                !isUnlocked ? 'cursor-not-allowed opacity-40' : 'hover:scale-110'
+              className={`relative z-10 flex flex-col items-center gap-1 focus:outline-none cursor-pointer transition-transform ${
+                !isUnlocked ? 'cursor-not-allowed opacity-35' : 'hover:scale-110 active:scale-95'
               }`}
               title={`Level ${level.numberStr}: ${level.title} (${
                 isDone ? 'Completed' : isUnlocked ? 'Unlocked' : 'Encrypted'
@@ -42,7 +42,7 @@ export const DashboardProgress: React.FC = () => {
             >
               {/* Node Circle */}
               <div
-                className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-[11px] font-semibold border transition-all ${
+                className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-[10px] sm:text-[11px] font-semibold border transition-all ${
                   isDone
                     ? 'shadow-sm'
                     : isCurrent

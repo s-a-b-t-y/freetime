@@ -3,11 +3,21 @@ import { Lock, Check, ChevronRight, ShieldCheck, FileText, Sparkles } from 'luci
 import { useArchive } from '../../context/ArchiveContext';
 import { ARCHIVE_LEVELS } from '../../data/levelData';
 
-export const DashboardNavigation: React.FC = () => {
+interface Props {
+  onSelect?: () => void;
+  className?: string;
+}
+
+export const DashboardNavigation: React.FC<Props> = ({ onSelect, className = '' }) => {
   const { currentLevel, unlockedLevels, completedLevels, setCurrentLevel, discoveredClues } = useArchive();
 
+  const handleSelectLevel = (levelId: number) => {
+    setCurrentLevel(levelId);
+    if (onSelect) onSelect();
+  };
+
   return (
-    <aside className="w-full lg:w-72 shrink-0 space-y-4">
+    <aside className={`w-full lg:w-72 shrink-0 space-y-4 ${className}`}>
       {/* System Status Card */}
       <div className="bg-[#121214] border border-[#27272A] rounded-xl p-4 font-mono text-xs space-y-3">
         <div className="flex items-center justify-between border-b border-[#27272A] pb-2.5">
@@ -54,7 +64,7 @@ export const DashboardNavigation: React.FC = () => {
                 key={level.id}
                 type="button"
                 disabled={!isUnlocked}
-                onClick={() => setCurrentLevel(level.id)}
+                onClick={() => handleSelectLevel(level.id)}
                 className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-left transition-all cursor-pointer ${
                   isCurrent
                     ? 'bg-[#1E1E24] text-white border shadow-sm'

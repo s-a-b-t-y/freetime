@@ -75,7 +75,7 @@ export const ThemeSelector: React.FC<{ className?: string }> = ({ className = ''
       <button
         type="button"
         onClick={() => setIsOpen(prev => !prev)}
-        className="group relative inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#27272A] hover:border-zinc-500 bg-[#121215]/90 hover:bg-[#18181D] text-zinc-300 hover:text-white transition-all duration-300 cursor-pointer shadow-lg backdrop-blur-md active:scale-95"
+        className="group relative inline-flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 rounded-full border border-[#27272A] hover:border-zinc-500 bg-[#121215]/90 hover:bg-[#18181D] text-zinc-300 hover:text-white transition-all duration-300 cursor-pointer shadow-lg backdrop-blur-md active:scale-95 shrink-0"
         title="Switch Visual Atmosphere Theme"
         aria-expanded={isOpen}
       >
@@ -88,14 +88,14 @@ export const ThemeSelector: React.FC<{ className?: string }> = ({ className = ''
           }}
         />
 
-        <Palette className="w-3.5 h-3.5 text-zinc-400 group-hover:text-white transition-colors" />
+        <Palette className="w-3.5 h-3.5 text-zinc-400 group-hover:text-white transition-colors shrink-0" />
 
-        <span className="hidden sm:inline font-mono text-[11px] uppercase tracking-wider font-medium text-zinc-200">
+        <span className="hidden md:inline font-mono text-[11px] uppercase tracking-wider font-medium text-zinc-200 whitespace-nowrap">
           {currentTheme.name}
         </span>
 
         <ChevronDown
-          className={`w-3 h-3 text-zinc-500 group-hover:text-zinc-300 transition-transform duration-300 ${
+          className={`hidden sm:inline w-3 h-3 text-zinc-500 group-hover:text-zinc-300 transition-transform duration-300 shrink-0 ${
             isOpen ? 'rotate-180 text-white' : ''
           }`}
         />
@@ -104,7 +104,7 @@ export const ThemeSelector: React.FC<{ className?: string }> = ({ className = ''
       {/* Floating Glassmorphism Theme Menu */}
       {isOpen && (
         <div
-          className="absolute right-0 mt-2.5 w-80 sm:w-88 rounded-2xl bg-[#111216]/95 border border-[#27272A] shadow-2xl p-3 z-50 text-left focus:outline-none backdrop-blur-xl animate-fade-in"
+          className="fixed sm:absolute left-3 right-3 sm:left-auto sm:right-0 top-16 sm:top-auto sm:mt-2.5 max-w-sm sm:w-88 rounded-2xl bg-[#111216]/98 border border-[#27272A] shadow-2xl p-3 z-50 text-left focus:outline-none backdrop-blur-xl animate-fade-in"
           role="menu"
         >
           {/* Header */}

@@ -9,7 +9,7 @@ export const SoundToggle: React.FC<{ className?: string }> = ({ className = '' }
     <button
       type="button"
       onClick={toggleSound}
-      className={`group relative inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border transition-all duration-300 cursor-pointer shadow-lg backdrop-blur-md active:scale-95 ${
+      className={`group relative inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-full border transition-all duration-300 cursor-pointer shadow-lg backdrop-blur-md active:scale-95 shrink-0 ${
         soundEnabled
           ? 'bg-[#14151B] border-zinc-600 text-white shadow-sm'
           : 'bg-[#121215]/90 border-[#27272A] hover:border-zinc-500 text-zinc-400 hover:text-zinc-200'

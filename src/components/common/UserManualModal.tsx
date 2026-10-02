@@ -19,22 +19,22 @@ export const UserManualModal: React.FC = () => {
     >
       <div className="relative w-full max-w-3xl max-h-[90vh] bg-[#121214] border border-[#27272A] rounded-xl flex flex-col shadow-2xl overflow-hidden text-zinc-200">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#27272A] bg-[#18181B]">
-          <div className="flex items-center gap-3">
-            <BookOpen className="w-5 h-5 text-rose-500" />
+        <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-[#27272A] bg-[#18181B]">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <BookOpen className="w-5 h-5 shrink-0" style={{ color: 'var(--color-accent)' }} />
             <div>
-              <h2 id="manual-title" className="text-base font-semibold text-white tracking-wide">
+              <h2 id="manual-title" className="text-sm sm:text-base font-semibold text-white tracking-wide">
                 Archive Operator Manual
               </h2>
-              <p className="text-xs font-mono text-zinc-400">
-                Classification: Confidential · Instructions & Architecture
+              <p className="text-[10px] sm:text-xs font-mono text-zinc-400">
+                Classification: Confidential · Instructions &amp; Architecture
               </p>
             </div>
           </div>
           <button
             type="button"
             onClick={() => toggleUserManual(false)}
-            className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-[#27272A] transition-colors cursor-pointer"
+            className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-[#27272A] transition-colors cursor-pointer shrink-0"
             aria-label="Close user manual"
           >
             <X className="w-5 h-5" />
@@ -42,44 +42,47 @@ export const UserManualModal: React.FC = () => {
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex items-center border-b border-[#27272A] px-6 bg-[#0E0E10] text-xs font-mono">
+        <div className="flex items-center border-b border-[#27272A] px-2 sm:px-6 bg-[#0E0E10] text-xs font-mono overflow-x-auto">
           <button
             type="button"
             onClick={() => setActiveTab('player')}
-            className={`py-3 px-4 border-b-2 font-medium transition-colors cursor-pointer flex items-center gap-2 ${
+            className={`py-2.5 sm:py-3 px-3 sm:px-4 border-b-2 font-medium transition-colors cursor-pointer flex items-center gap-1.5 sm:gap-2 whitespace-nowrap shrink-0 ${
               activeTab === 'player'
-                ? 'border-rose-500 text-white bg-rose-500/5'
+                ? 'text-white'
                 : 'border-transparent text-zinc-400 hover:text-zinc-200'
             }`}
+            style={activeTab === 'player' ? { borderBottomColor: 'var(--color-accent)', backgroundColor: 'var(--color-accent-subtle)' } : undefined}
           >
-            <Compass className="w-4 h-4" />
-            Recipient Guide (How to Play)
+            <Compass className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+            <span>How to Play</span>
           </button>
 
           <button
             type="button"
             onClick={() => setActiveTab('curator')}
-            className={`py-3 px-4 border-b-2 font-medium transition-colors cursor-pointer flex items-center gap-2 ${
+            className={`py-2.5 sm:py-3 px-3 sm:px-4 border-b-2 font-medium transition-colors cursor-pointer flex items-center gap-1.5 sm:gap-2 whitespace-nowrap shrink-0 ${
               activeTab === 'curator'
-                ? 'border-rose-500 text-white bg-rose-500/5'
+                ? 'text-white'
                 : 'border-transparent text-zinc-400 hover:text-zinc-200'
             }`}
+            style={activeTab === 'curator' ? { borderBottomColor: 'var(--color-accent)', backgroundColor: 'var(--color-accent-subtle)' } : undefined}
           >
-            <Code className="w-4 h-4" />
-            Curator Guide (How to Personalize)
+            <Code className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+            <span>How to Personalize</span>
           </button>
 
           <button
             type="button"
             onClick={() => setActiveTab('cheatsheet')}
-            className={`py-3 px-4 border-b-2 font-medium transition-colors cursor-pointer flex items-center gap-2 ${
+            className={`py-2.5 sm:py-3 px-3 sm:px-4 border-b-2 font-medium transition-colors cursor-pointer flex items-center gap-1.5 sm:gap-2 whitespace-nowrap shrink-0 ${
               activeTab === 'cheatsheet'
-                ? 'border-rose-500 text-white bg-rose-500/5'
+                ? 'text-white'
                 : 'border-transparent text-zinc-400 hover:text-zinc-200'
             }`}
+            style={activeTab === 'cheatsheet' ? { borderBottomColor: 'var(--color-accent)', backgroundColor: 'var(--color-accent-subtle)' } : undefined}
           >
-            <Key className="w-4 h-4" />
-            Default Puzzle Keys
+            <Key className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+            <span>Default Keys</span>
           </button>
         </div>
 
